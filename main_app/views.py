@@ -1,4 +1,3 @@
-from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
@@ -36,7 +35,6 @@ class DogCreate(CreateView):
   # will be called if the dog data is valid
   def form_valid(self, form):
     # form.instance is the in-memory new dog obj
-    form.instance.user = self.request.user
     # Let the CreateView's form_valid method do its job
     return super().form_valid(form)
 
